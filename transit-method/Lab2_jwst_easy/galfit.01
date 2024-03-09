@@ -1,0 +1,86 @@
+
+#  Input menu file: CEERS_AGN_demo/galfit_F200W.feedme
+
+#  Chi^2/nu = 1.770,  Chi^2 = 68319.141,  Ndof = 38597
+
+================================================================================
+# IMAGE and GALFIT CONTROL PARAMETERS
+A) CEERS_AGN_demo/DATA_F200W.fits      # Input data image (FITS file)
+B) CEERS_AGN_demo/results_F200W.fits      # Output data image block
+C) none                # Sigma image name (made from data if blank or "none") 
+D) CEERS_AGN_demo/PSF_MODEL_F200W.fits          # Input PSF image and (optional) diffusion kernel
+E) 2                   # PSF fine sampling factor relative to data 
+F) CEERS_AGN_demo/MASK.fits      # Bad pixel mask (FITS image or ASCII coord list)
+G) CEERS_AGN_demo/galfit_SS.CONSTRAINTS      # File with parameter constraints (ASCII file) 
+H) 1    201  1    201  # Image region to fit (xmin xmax ymin ymax)
+I) 151    151          # Size of the convolution box (x y)
+J) 27.394              # Magnitude photometric zeropoint 
+K) 0.030  0.030        # Plate scale (dx dy)   [arcsec per pixel]
+O) regular             # Display type (regular, curses, both)
+P) 3                   # Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
+
+# INITIAL FITTING PARAMETERS
+#
+#   For component type, the allowed functions are: 
+#       sersic, expdisk, edgedisk, devauc, king, nuker, psf, 
+#       gaussian, moffat, ferrer, and sky. 
+#  
+#   Hidden parameters will only appear when they're specified:
+#       Bn (n=integer, Bending Modes).
+#       C0 (diskyness/boxyness), 
+#       Fn (n=integer, Azimuthal Fourier Modes).
+#       R0-R10 (coordinate rotation, for creating spiral structures).
+#       To, Ti, T0-T10 (truncation function).
+# 
+# ------------------------------------------------------------------------------
+#   par)    par value(s)    fit toggle(s)    # parameter description 
+# ------------------------------------------------------------------------------
+
+# Component number: 1
+ 0) sky                    #  Component type
+ 1) -0.1551     1          #  Sky background at center of fitting region [ADUs]
+ 2) 0.000e+00      0       #  dsky/dx (sky gradient in x)     [ADUs/pix]
+ 3) 0.000e+00      0       #  dsky/dy (sky gradient in y)     [ADUs/pix]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 2
+ 0) psf                    #  Component type
+ 1) 101.1878 101.5273 1 1  #  Position x, y 
+ 3) 20.2521     1          #  Integrated magnitude 
+ 4) 0.0000      0          #     ----- 
+ 5) 0.0000      0          #     ----- 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 1.0000      -1         #  Axis ratio (b/a)  
+10) 0.0000      -1         #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 3
+ 0) sersic                 #  Component type
+ 1) 101.1878 101.5273 2 2  #  Position x, y
+ 3) 20.5205     1          #  Integrated magnitude 
+ 4) 17.8513     1          #  R_e (effective radius)   [pix]
+ 5) 2.3207      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.7166      1          #  Axis ratio (b/a)  
+10) 87.6249     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 4
+ 0) sersic                 #  Component type
+ 1) 141.7577 104.0605 1 1  #  Position x, y
+ 3) 25.2047     1          #  Integrated magnitude 
+ 4) 4.7300      1          #  R_e (effective radius)   [pix]
+ 5) 0.8993      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.5448      1          #  Axis ratio (b/a)  
+10) -14.4159    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+================================================================================
+
